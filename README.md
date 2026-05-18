@@ -79,7 +79,7 @@ Before starting, update your Ubuntu/WSL system:
 sudo apt update && sudo apt upgrade -y
 ```
 
-Install dos2unix utility:
+Install dos2unix utility and git:
 
 ```bash
 sudo apt-get install -y dos2unix git
