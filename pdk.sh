@@ -108,7 +108,7 @@ hash -r
 # -------------------------------
 # STEP 4: OpenPDKs
 # -------------------------------
-
+cd /labroot
 git clone git://opencircuitdesign.com/open_pdks
 cd open_pdks
 ./configure --enable-sky130-pdk 
