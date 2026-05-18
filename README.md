@@ -248,7 +248,7 @@ export DISPLAY=:0
 | --------- | ----------------- |
 | RAM       | 16 GB or Higher   |
 | CPU       | 4 Cores or Higher |
-| Storage   | 80 GB Free Space  |
+| Storage   | 150 GB Free Space |
 | OS        | Ubuntu 24         |
 | WSL       | WSL2              |
 
