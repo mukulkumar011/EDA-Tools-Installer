@@ -23,6 +23,7 @@ Step 4: Make Scripts Executable
 Give executable permissions to all shell scripts:
 
 sudo chmod +x *.sh
+
 sudo dos2unix *.sh
 
 
