@@ -289,11 +289,19 @@ docker run hello-world
 # Developed By
 
 Mukul Kumar
+
 Junior VLSI Engineer
+
 NIELIT CoE Noida
 
 ---
 
 # Disclaimer
 
-These scripts are intended for educational, research, and development purposes in Open-Source VLSI and ASIC Design workflows.
+These scripts are provided "as is" without any warranties or guarantees of any kind, either express or implied.
+
+The author shall not be held responsible or liable for any damage, data loss, system instability, security issues, configuration problems, or other consequences resulting from the use or misuse of these scripts.
+
+Users are advised to review the scripts carefully and use them at their own risk. It is recommended to test the installation in a controlled or backup environment before deploying on production systems.
+
+These scripts are intended solely for educational, research, and development purposes related to Open-Source VLSI and ASIC Design workflows.
