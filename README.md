@@ -7,55 +7,51 @@ Step 1: Update System
 Before starting, update your Ubuntu/WSL system:
 
 sudo apt update && sudo apt upgrade -y
+and install dos2unix:
+sudo apt-get install -y dos2unix
+
 Step 2: Clone the Repository
 
-Clone the repository to your system:
+Clone the repository to your system using:
+git clone https://github.com/mukulkumar011/EDA-Tools-Installer.git
 
-git clone https://github.com/<your-username>/<repository-name>.git
-
-Example:
-
-git clone https://github.com/mukulkumar/OpenEDA-Lab.git
 Step 3: Move into Repository Directory
-cd <repository-name>
+cd EDA-Tools-Installer
 
-Example:
-
-cd OpenEDA-Lab
 Step 4: Make Scripts Executable
 
 Give executable permissions to all shell scripts:
 
-chmod +x *.sh
+sudo chmod +x *.sh
+sudo dos2unix *.sh
 
-If scripts are inside folders:
 
-chmod +x scripts/**/*.sh
 Step 5: Run Installation Script
+
 Install OpenLane Environment
 ./openlaneinstall.sh
 
 This installs:
-
 Docker
 OpenLane
 SKY130 PDK Support
 OpenLane launcher command
+
+
 Install Analog Design Environment
 ./pdk.sh
 
 This installs:
-
 Ngspice
 Xschem
 Magic VLSI
 Netgen
 OpenPDKs (SKY130)
+
 Install Digital RTL-to-GDS Flow Tools
 ./installfinalv2.sh
 
 This installs:
-
 Yosys
 Verilator
 GTKWave
@@ -63,6 +59,8 @@ OpenROAD
 OpenSTA
 KLayout
 RISC-V Toolchain
+iverilog
+
 Step 6: Restart Terminal Session
 
 Some tools require environment variables and group permissions to refresh.
