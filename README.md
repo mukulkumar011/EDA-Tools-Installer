@@ -82,7 +82,7 @@ sudo apt update && sudo apt upgrade -y
 Install dos2unix utility:
 
 ```bash
-sudo apt-get install -y dos2unix
+sudo apt-get install -y dos2unix git
 ```
 
 ---
