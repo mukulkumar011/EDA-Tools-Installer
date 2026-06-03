@@ -134,7 +134,7 @@ sudo apt-get install -y \
 # ---------------------------------------------
 # STEP 3: Install VIM , GVIM, YOSYS, GTKWAVE
 # ---------------------------------------------
-sudo apt-get install -y vim vim-gtk3 yosys gtkwave
+sudo apt-get install -y vim vim-gtk3 yosys gtkwave irsim
 
 # -------------------------------
 # STEP 4: Verilator 5.038
