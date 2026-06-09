@@ -80,6 +80,20 @@ cd release
 ../configure --with-x --enable-xspice --disable-debug --enable-cider --with-readline=yes --enable-openmp --enable-osdi
 make
 sudo make install
+
+# -------------------------------
+#  OpenTimer
+# -------------------------------
+
+cd /labroot
+git clone https://github.com/OpenTimer/OpenTimer.git
+cd OpenTimer
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+
 # -------------------------------
 # STEP 2: Xschem
 # -------------------------------
