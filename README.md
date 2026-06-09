@@ -24,6 +24,7 @@ This repository provides ready-to-use shell scripts to install and configure a c
 * GTKWave
 * Icarus Verilog
 * OpenSTA
+* OpenTimer
 
 ## Physical Design
 
@@ -151,6 +152,7 @@ sudo dos2unix *.sh
 * Magic VLSI
 * Netgen
 * OpenPDKs (SKY130)
+* OpenTimer
 
 ---
 
