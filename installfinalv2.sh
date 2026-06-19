@@ -342,7 +342,7 @@ git clone https://github.com/gabime/spdlog.git
 cd spdlog
 mkdir build && cd build
 cmake .. -DSPDLOG_FMT_EXTERNAL=OFF
-make -j4
+make -j$JOBS
 sudo make install
 
 # -------------------------------
@@ -365,7 +365,7 @@ cmake .. -DCMAKE_BUILD_TYPE=Release \
 -DSPDLOG_FMT_EXTERNAL=OFF \
 -DFMT_EXTERNAL=OFF \
 -DCMAKE_DISABLE_FIND_PACKAGE_ortools=OFF || { echo "Configure failed"; exit 1; }
-make -j1 2>&1 | tee build.log
+make -j$JOBS 2>&1 | tee build.log
 sudo make install
 
 
