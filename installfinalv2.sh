@@ -365,8 +365,7 @@ cmake .. -DCMAKE_BUILD_TYPE=Release \
 -DSPDLOG_FMT_EXTERNAL=OFF \
 -DFMT_EXTERNAL=OFF \
 -DCMAKE_DISABLE_FIND_PACKAGE_ortools=OFF || { echo "Configure failed"; exit 1; }
-make -j4 2>&1 | tee build.log
-#make -j$(nproc)
+make -j1 2>&1 | tee build.log
 sudo make install
 
 
@@ -404,21 +403,6 @@ print_tool_info() {
 
     echo ""
 }
-
-#print_tool_info() {
- # TOOL_NAME=$1
-  #CMD=$2
-
- # if command -v "$CMD" &> /dev/null; then
-  #  echo "$TOOL_NAME"
-   # echo "Location: $(which $CMD)"
-   # VERSION=$($CMD --version 2>/dev/null | head -n 1)
-    # [ -n "$VERSION" ] && echo "   🔹 Version: $VERSION"
- # else
- #   echo "$TOOL_NAME NOT FOUND"
-#  fi
-#  echo ""
-#}
 
 print_tool_info "Vim" "vim"
 print_tool_info "GVim" "gvim"
