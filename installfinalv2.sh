@@ -38,7 +38,7 @@ echo "===== Checking System Dependencies ====="
 # -------------------------------
 # COMMAND CHECKS
 # -------------------------------
-commands=(gcc g++ make flex bison perl python3 git cmake pkg-config gawk wget curl swig)
+commands=(gcc g++ make flex bison perl python3 git cmake pkg-config gawk wget curl)
 
 for tool in "${commands[@]}"; do
   if command -v $tool &> /dev/null; then
@@ -115,7 +115,6 @@ sudo apt-get install -y \
   graphviz xdot \
   python3 python3-pip python3-dev python3-tk pipx \
   gsl-bin libgsl-dev \
-  swig \
   wget curl ca-certificates
 sudo apt-get install -y \
   build-essential git clang bison flex libfl-dev libreadline-dev \
@@ -129,7 +128,6 @@ sudo apt-get install -y \
   graphviz xdot \
   python3 python3-pip python3-tk \
   gsl-bin libgsl-dev \
-  swig
 
 # ---------------------------------------------
 # STEP 3: Install VIM , GVIM, YOSYS, GTKWAVE
