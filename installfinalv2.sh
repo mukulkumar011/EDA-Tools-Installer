@@ -290,14 +290,14 @@ sudo make install
 # -------------------------------
 # STEP 15: Boost 1.83
 # -------------------------------
-cd /labroot
-wget https://archives.boost.io/release/1.83.0/source/boost_1_83_0.tar.gz
-tar -xzf boost_1_83_0.tar.gz
-cd boost_1_83_0
+#cd /labroot
+#wget https://archives.boost.io/release/1.83.0/source/boost_1_83_0.tar.gz
+#tar -xzf boost_1_83_0.tar.gz
+#cd boost_1_83_0
 
-./bootstrap.sh --prefix=/usr/local || { echo "Configure failed"; exit 1; }
+#./bootstrap.sh --prefix=/usr/local || { echo "Configure failed"; exit 1; }
 
-sudo ./b2 -j$(nproc) install
+#sudo ./b2 -j$(nproc) install
 
 # -------------------------------
 # STEP 15: Boost 1.87
@@ -361,6 +361,7 @@ sed -i 's/^#add_subdirectory(par)/add_subdirectory(par)/' src/CMakeLists.txt
 mkdir build && cd build
 
 cmake .. -DCMAKE_BUILD_TYPE=Release \
+-DCMAKE_CXX_STANDARD=20 \
 -DENABLE_TESTS=OFF \
 -DSPDLOG_FMT_EXTERNAL=OFF \
 -DFMT_EXTERNAL=OFF \
