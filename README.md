@@ -175,6 +175,21 @@ sudo dos2unix *.sh
 
 ---
 
+## 4. Install Digital RTL-to-GDSII Flow Toolchain (Qflow)
+
+```bash
+./qflow.sh
+```
+
+### This installs:
+
+* Graywolf
+* Qrouter
+* Qflow
+
+---
+
+
 # Restart Terminal Session
 
 Some tools require environment variables and group permissions to refresh.
