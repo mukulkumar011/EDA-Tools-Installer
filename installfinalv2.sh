@@ -144,7 +144,7 @@ git checkout v5.038
 
 autoconf
 ./configure || { echo "Configure failed"; exit 1; }
-make -j$(nproc)
+make -j$JOBS
 sudo make install 
 
 # -------------------------------
@@ -198,7 +198,7 @@ git checkout 20240116.2
 
 mkdir build && cd build
 cmake .. -DCMAKE_CXX_STANDARD=17 || { echo "Configure failed"; exit 1; }
-make -j$(nproc)
+make -j$JOBS
 sudo make install
 
 # -------------------------------
