@@ -27,7 +27,7 @@ echo "Detected $CORES cores, using $JOBS parallel jobs"
 # -------------------------------
 # STEP 1: System Dependencies
 # -------------------------------
-sudo apt-get update
+#sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get install -y \
 vim vim-gtk3 iverilog klayout
