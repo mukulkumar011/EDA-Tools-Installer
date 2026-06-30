@@ -18,7 +18,7 @@ echo "=================================================="
 echo " Updating System Packages"
 echo "=================================================="
 
-sudo apt update
+#sudo apt update
 sudo apt upgrade -y
 sudo apt install -y build-essential git autoconf automake libtool \
                     tcl-dev tk-dev libcairo2-dev m4 flex bison \
@@ -26,7 +26,7 @@ sudo apt install -y build-essential git autoconf automake libtool \
                     libncurses-dev libglu1-mesa-dev freeglut3-dev mesa-common-dev \
                     pkg-config python3 python3-tk xterm
 					
-sudo apt update
+#sudo apt update
 
 sudo apt install -y \
 build-essential \
