@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+set -uo pipefail
 
 echo "#=============================================#"
 echo "# Author       : Mukul Kumar                  #"
@@ -9,6 +9,11 @@ echo "#=============================================#"
 if [ ! -d "/labroot" ]; then
     echo "Creating /labroot directory..."
     sudo mkdir -p /labroot
+fi
+
+if [ ! -d "/labroot/installfinal" ]; then
+    echo "Creating /labroot/installfinal directory..."
+    sudo mkdir -p /labroot/installfinal
 fi
 
 sudo chown -R $USER:$USER /labroot

@@ -13,7 +13,7 @@ echo "#   - WSL2                                                   #"
 echo "#   - Multi-user Linux Labs                                  #"
 echo "#============================================================#"
 
-set -euo pipefail
+set -uo pipefail
 
 echo "=================================================="
 echo " Updating System Packages"

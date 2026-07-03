@@ -12,7 +12,7 @@ echo "#   - WSL2                                                   #"
 echo "#   - Multi-user Linux Labs                                  #"
 echo "#============================================================#"
 
-set -euo pipefail
+set -uo pipefail
 
 echo "=================================================="
 echo " Updating System Packages"
@@ -53,18 +53,18 @@ echo "=================================================="
 echo " Checking /labroot Directory"
 echo "=================================================="
 
-if [ ! -d "/labroot" ]; then
-    echo "/labroot directory not found."
-    echo "Creating /labroot ..."
+if [ ! -d "/labroot/pdk" ]; then
+    echo "/labroot/pdk directory not found."
+    echo "Creating /labroot/pdk ..."
 
-    sudo mkdir -p /labroot
+    sudo mkdir -p /labroot/pdk
 
     # Give ownership to current user
     sudo chown -R $USER:$USER /labroot
 
-    echo "/labroot created successfully."
+    echo "/labroot/pdk created successfully."
 else
-    echo "/labroot already exists."
+    echo "/labroot/pdk already exists."
 fi
 
 # -------------------------------
