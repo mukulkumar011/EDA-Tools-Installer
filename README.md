@@ -62,9 +62,9 @@ This repository provides ready-to-use shell scripts to install and configure a c
 ```text
 EDA-Tools-Installer/
 │
-├── installfinalv2.sh      # RTL-to-GDSII Digital Flow Tools
-├── openlaneinstall.sh     # OpenLane + Docker Setup
-├── pdk.sh                 # Analog Design + SKY130 PDK Setup
+├── installfinalv2.sh & installfinalv21.sh      # RTL-to-GDSII Digital Flow Tools
+├── openlaneinstall.sh                          # OpenLane + Docker Setup
+├── pdk.sh                                      # Analog Design + SKY130 PDK Setup
 └── README.md
 ```
 
@@ -161,7 +161,10 @@ sudo dos2unix *.sh
 ```bash
 ./installfinalv2.sh
 ```
-
+then
+```bash
+./installfinalv21.sh
+```
 ### This installs:
 
 * Yosys
