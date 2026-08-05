@@ -142,7 +142,7 @@ sudo apt-get install -y vim vim-gtk3 yosys gtkwave irsim
 # -------------------------------
 # STEP 4: Verilator 5.038
 # -------------------------------
-cd /labroot
+cd /labroot/installfinal
 git clone https://github.com/verilator/verilator.git
 cd verilator
 git checkout v5.038
@@ -196,7 +196,7 @@ pipx install cmake==3.26.4
 # -------------------------------
 # STEP 8: Abseil
 # -------------------------------
-cd /labroot
+cd /labroot/installfinal
 git clone https://github.com/abseil/abseil-cpp.git
 cd abseil-cpp
 git checkout 20240116.2
@@ -209,7 +209,7 @@ sudo make install
 # -------------------------------
 # STEP 9: YAML-CPP
 # -------------------------------
-cd /labroot
+cd /labroot/installfinal
 git clone https://github.com/jbeder/yaml-cpp.git
 cd yaml-cpp
 
@@ -221,7 +221,7 @@ sudo make install
 # -------------------------------
 # STEP 10: CUDD
 # -------------------------------
-cd /labroot
+cd /labroot/installfinal
 git clone https://github.com/ivmai/cudd.git
 cd cudd
 
@@ -233,7 +233,7 @@ sudo make install
 # -------------------------------
 # STEP 11: GTest
 # -------------------------------
-cd /labroot
+cd /labroot/installfinal
 git clone https://github.com/google/googletest.git
 cd googletest
 
@@ -245,57 +245,57 @@ sudo make install
 # -------------------------------
 # STEP 12: SWIG (Python)
 # -------------------------------
-sudo apt remove -y swig
-sudo apt-get install -y \
-  build-essential autoconf automake libtool \
-  bison flex gawk \
-  libpcre2-dev
-cd /labroot
-wget https://github.com/swig/swig/archive/refs/tags/v4.3.0.tar.gz
-tar -xzf v4.3.0.tar.gz
-cd swig-4.3.0
-./autogen.sh
-./configure
-make -j$(nproc)
-sudo make install
+#sudo apt remove -y swig
+#sudo apt-get install -y \
+ # build-essential autoconf automake libtool \
+  #bison flex gawk \
+  #libpcre2-dev
+#cd /labroot/installfinal
+#wget https://github.com/swig/swig/archive/refs/tags/v4.3.0.tar.gz
+#tar -xzf v4.3.0.tar.gz
+#cd swig-4.3.0
+#./autogen.sh
+#./configure
+#make -j$(nproc)
+#sudo make install
 # -------------------------------
 # STEP 13: Environment Variables
 # -------------------------------
-echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
-echo 'export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
-echo 'export LIBRARY_PATH=/usr/local/lib:$LIBRARY_PATH' >> ~/.bashrc
-echo 'export CMAKE_PREFIX_PATH="/usr/local;/usr/lib/x86_64-linux-gnu"' >> ~/.bashrc
-echo 'export Qt5_DIR=/usr/lib/x86_64-linux-gnu/cmake/Qt5' >> ~/.bashrc
-echo 'export LEMON_DIR=/usr/local/lib/cmake/lemon' >> ~/.bashrc
+#echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
+#echo 'export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
+#echo 'export LIBRARY_PATH=/usr/local/lib:$LIBRARY_PATH' >> ~/.bashrc
+#echo 'export CMAKE_PREFIX_PATH="/usr/local;/usr/lib/x86_64-linux-gnu"' >> ~/.bashrc
+#echo 'export Qt5_DIR=/usr/lib/x86_64-linux-gnu/cmake/Qt5' >> ~/.bashrc
+#echo 'export LEMON_DIR=/usr/local/lib/cmake/lemon' >> ~/.bashrc
 
 
-source ~/.bashrc
+#source ~/.bashrc
 
 # -------------------------------
 # STEP 14: OR-Tools
 # -------------------------------
-cd /labroot
-git clone https://github.com/google/or-tools.git
-cd or-tools
-git checkout v9.8
+#cd /labroot/installfinal
+#git clone https://github.com/google/or-tools.git
+#cd or-tools
+#git checkout v9.8
 
-mkdir build && cd build
-cmake .. \
-  -DCMAKE_BUILD_TYPE=Release \
-  -DBUILD_SHARED_LIBS=ON \
-  -DBUILD_EXAMPLES=OFF \
-  -DBUILD_TESTS=OFF \
-  -DBUILD_DEPS=ON || { echo "Configure failed"; exit 1; }
+#mkdir build && cd build
+#cmake .. \
+ # -DCMAKE_BUILD_TYPE=Release \
+ # -DBUILD_SHARED_LIBS=ON \
+ # -DBUILD_EXAMPLES=OFF \
+ # -DBUILD_TESTS=OFF \
+ # -DBUILD_DEPS=ON || { echo "Configure failed"; exit 1; }
 #JOBS=$(nproc)
 #[ "$JOBS" -gt 4 ] && JOBS=4   # stricter limit
-make -j$JOBS
+#make -j$JOBS
 #make -j$(nproc)
-sudo make install
+#sudo make install
 
 # -------------------------------
 # STEP 15: Boost 1.83
 # -------------------------------
-#cd /labroot
+#cd /labroot/installfinal
 #wget https://archives.boost.io/release/1.83.0/source/boost_1_83_0.tar.gz
 #tar -xzf boost_1_83_0.tar.gz
 #cd boost_1_83_0
@@ -307,77 +307,77 @@ sudo make install
 # -------------------------------
 # STEP 15: Boost 1.87
 # -------------------------------
-cd /labroot
-wget -O boost_1_87_0.tar.gz https://archives.boost.io/release/1.87.0/source/boost_1_87_0.tar.gz
-tar -xvf boost_1_87_0.tar.gz
-cd boost_1_87_0
+#cd /labroot/installfinal
+#wget -O boost_1_87_0.tar.gz https://archives.boost.io/release/1.87.0/source/boost_1_87_0.tar.gz
+#tar -xvf boost_1_87_0.tar.gz
+#cd boost_1_87_0
 
-./bootstrap.sh || { echo "Configure failed"; exit 1; }
+#./bootstrap.sh || { echo "Configure failed"; exit 1; }
 
-sudo ./b2 -j$(nproc) install
+#sudo ./b2 -j$(nproc) install
 
 # -------------------------------
 # STEP 16: lemon
 # -------------------------------
-cd /labroot
-wget https://github.com/The-OpenROAD-Project/lemon-graph/archive/refs/heads/master.tar.gz
-tar -xzf master.tar.gz
-cd lemon-graph-master
-mkdir build && cd build
-cmake .. \
-  -DLEMON_ENABLE_ILOG=OFF \
-  -DLEMON_ENABLE_GLPK=OFF \
-  -DLEMON_ENABLE_COIN=OFF \
-  -DLEMON_ENABLE_SOPLEX=OFF
-make -j$(nproc)
-sudo make install
+#cd /labroot/installfinal
+#wget https://github.com/The-OpenROAD-Project/lemon-graph/archive/refs/heads/master.tar.gz
+#tar -xzf master.tar.gz
+#cd lemon-graph-master
+#mkdir build && cd build
+#cmake .. \
+#  -DLEMON_ENABLE_ILOG=OFF \
+#  -DLEMON_ENABLE_GLPK=OFF \
+#  -DLEMON_ENABLE_COIN=OFF \
+#  -DLEMON_ENABLE_SOPLEX=OFF
+#make -j$(nproc)
+#sudo make install
 
 
-pipx uninstall cmake
-pipx install cmake==3.29.6
-pipx ensurepath
-export PATH=$HOME/.local/bin:$PATH
+#pipx uninstall cmake
+#pipx install cmake==3.29.6
+#pipx ensurepath
+#export PATH=$HOME/.local/bin:$PATH
 
 # -------------------------------
 # Necessary Pre-requisites
 # -------------------------------
-sudo apt remove -y libfmt-dev libspdlog-dev
-cd /labroot
-git clone https://github.com/gabime/spdlog.git
-cd spdlog
-mkdir build && cd build
-cmake .. -DSPDLOG_FMT_EXTERNAL=OFF
-make -j$JOBS
-sudo make install
+#sudo apt remove -y libfmt-dev libspdlog-dev
+#cd /labroot/installfinal
+#git clone https://github.com/gabime/spdlog.git
+#cd spdlog
+#mkdir build && cd build
+#cmake .. -DSPDLOG_FMT_EXTERNAL=OFF
+#make -j$JOBS
+#sudo make install
 
 # -------------------------------
 # STEP 17: OpenROAD
 # -------------------------------
-cd /labroot
-git clone https://github.com/The-OpenROAD-Project/OpenROAD.git
-cd OpenROAD
+#cd /labroot/installfinal
+#git clone https://github.com/The-OpenROAD-Project/OpenROAD.git
+#cd OpenROAD
 
-git submodule update --init --recursive
+#git submodule update --init --recursive
 
-sed -i 's/^#add_subdirectory(gpl)/add_subdirectory(gpl)/' src/CMakeLists.txt
-sed -i 's/^#add_subdirectory(mpl)/add_subdirectory(mpl)/' src/CMakeLists.txt
-sed -i 's/^#add_subdirectory(par)/add_subdirectory(par)/' src/CMakeLists.txt
+#sed -i 's/^#add_subdirectory(gpl)/add_subdirectory(gpl)/' src/CMakeLists.txt
+#sed -i 's/^#add_subdirectory(mpl)/add_subdirectory(mpl)/' src/CMakeLists.txt
+#sed -i 's/^#add_subdirectory(par)/add_subdirectory(par)/' src/CMakeLists.txt
 
-mkdir build && cd build
+#mkdir build && cd build
 
-cmake .. -DCMAKE_BUILD_TYPE=Release \
--DCMAKE_CXX_STANDARD=20 \
--DENABLE_TESTS=OFF \
--DSPDLOG_FMT_EXTERNAL=OFF \
--DFMT_EXTERNAL=OFF \
--DCMAKE_DISABLE_FIND_PACKAGE_ortools=OFF || { echo "Configure failed"; exit 1; }
-make -j$JOBS 2>&1 | tee build.log
-sudo make install
+#cmake .. -DCMAKE_BUILD_TYPE=Release \
+#-DCMAKE_CXX_STANDARD=20 \
+#-DENABLE_TESTS=OFF \
+#-DSPDLOG_FMT_EXTERNAL=OFF \
+#-DFMT_EXTERNAL=OFF \
+#-DCMAKE_DISABLE_FIND_PACKAGE_ortools=OFF || { echo "Configure failed"; exit 1; }
+#make -j$JOBS 2>&1 | tee build.log
+#sudo make install
 
 
-cd /labroot
-sudo apt-get install -y \
-libnglib-dev netgen-headers
+#cd /labroot/installfinal
+#sudo apt-get install -y \
+#libnglib-dev netgen-headers
 
 
 echo "===== INSTALLATION COMPLETE ====="
@@ -415,9 +415,7 @@ print_tool_info "GVim" "gvim"
 print_tool_info "Verilator" "verilator"
 print_tool_info "GTKWave" "gtkwave"
 print_tool_info "Yosys" "yosys"
-print_tool_info "OpenROAD" "openroad"
 print_tool_info "Klayout" "klayout"
-print_tool_info "OpenSTA" "sta"
 print_tool_info "RISC-V Tool Chain" "riscv64-unknown-elf-gcc"
 echo "===== SETUP COMPLETE ====="
 echo "#=============================================#"
