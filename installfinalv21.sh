@@ -1,6 +1,12 @@
 #!/bin/bash
 set -uo pipefail
 
+echo "#=============================================#"
+echo "# Author       : Mukul Kumar                  #"
+echo "# Designation  : Junior VLSI Engineer         #"         
+echo "# Organization : NIELIT CoE Noida             #"
+echo "#=============================================#"
+
 if [ ! -d "/labroot" ]; then
     echo "Creating /labroot directory..."
     sudo mkdir -p /labroot
@@ -410,4 +416,9 @@ print_tool_info "OpenROAD" "openroad"
 print_tool_info "OpenSTA" "sta"
 print_tool_info "RISC-V Tool Chain" "riscv64-unknown-elf-gcc"
 echo "===== SETUP COMPLETE ====="
+echo "#=============================================#"
+echo "# Author       : Mukul Kumar                  #"
+echo "# Designation  : Junior VLSI Engineer         #"         
+echo "# Organization : NIELIT CoE Noida             #"
+echo "#=============================================#"
 
