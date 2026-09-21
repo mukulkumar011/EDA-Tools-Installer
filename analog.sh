@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "#============================================================#"
-echo "# Analog Complete with Open analog Installation Script       #"
+echo "# Analog Tools Installation Script                           #"
 echo "# Author         : Mukul Kumar                               #"
 echo "# Designation    : Junior VLSI Engineer                      #"
 echo "# Organization   : NIELIT CoE Noida                          #"                
