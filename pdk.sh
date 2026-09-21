@@ -12,7 +12,7 @@ echo "#   - WSL2                                                   #"
 echo "#   - Multi-user Linux Labs                                  #"
 echo "#============================================================#"
 
-set -uo pipefail
+set -euo pipefail
 
 echo "=================================================="
 echo " Updating System Packages"
@@ -54,7 +54,7 @@ echo " Checking /labroot Directory"
 echo "=================================================="
 
 if [ ! -d "/labroot/pdk" ]; then
-    echo "/labroot/pdk directory not found."
+    echo "/labroot directory not found."
     echo "Creating /labroot/pdk ..."
 
     sudo mkdir -p /labroot/pdk
@@ -71,7 +71,7 @@ fi
 # STEP 1: Ngspice
 # -------------------------------
 
-cd /labroot
+cd /labroot/pdk
 git clone https://git.code.sf.net/p/ngspice/ngspice ngspice_git
 cd ngspice_git
 mkdir release
@@ -85,7 +85,7 @@ sudo make install
 #  OpenTimer
 # -------------------------------
 
-cd /labroot
+cd /labroot/pdk
 git clone https://github.com/OpenTimer/OpenTimer.git
 cd OpenTimer
 mkdir build
@@ -98,20 +98,20 @@ sudo make install
 # STEP 2: Xschem
 # -------------------------------
 
-cd /labroot
+cd /labroot/pdk
 git clone https://github.com/StefanSchippers/xschem.git xschem-src
 cd xschem-src
 ./configure
 make
 sudo make install
-cd /labroot/xschem-src/xschem_library
+cd /labroot/pdk/xschem-src/xschem_library
 sudo git pull
 
 # -------------------------------
 # STEP 3: Magic
 # -------------------------------
 
-cd /labroot
+cd /labroot/pdk
 git clone https://github.com/RTimothyEdwards/magic.git
 cd magic
 ./configure
@@ -122,7 +122,7 @@ hash -r
 # -------------------------------
 # STEP 4: OpenPDKs
 # -------------------------------
-cd /labroot
+cd /labroot/pdk
 git clone git://opencircuitdesign.com/open_pdks
 cd open_pdks
 ./configure --enable-sky130-pdk 
@@ -195,7 +195,7 @@ echo "=========================================="
 echo "Creating Magic launcher wrapper..."
 echo "=========================================="
 
-# Backup original magic binary if not already backed up
+ Backup original magic binary if not already backed up
 if [ -f /usr/local/bin/magic ] && [ ! -f /usr/local/bin/magic_bin ]; then
     sudo mv /usr/local/bin/magic /usr/local/bin/magic_bin
 fi
@@ -272,8 +272,8 @@ print_tool_info() {
 
     echo ""
 }
-print_tool_info "Magic" "magic_bin"
-print_tool_info "Xschem" "xschem_bin"
+print_tool_info "Magic" "magic"
+print_tool_info "Xschem" "xschem"
 print_tool_info "Netgen" "netgen"
 print_tool_info "Ngspice" "ngspice"
 echo "===== SETUP COMPLETE ====="
