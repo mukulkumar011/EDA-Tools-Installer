@@ -64,8 +64,8 @@ EDA-Tools-Installer/
 │
 ├── installfinalv2.sh & installfinalv21.sh      # RTL-to-GDSII Digital Flow Tools
 ├── openlaneinstall.sh                          # OpenLane + Docker Setup
-├── pdk.sh                                      # SKY130 PDK Setup
 ├── analog.sh                                   # Analog Design Tools Setup
+├── pdk.sh                                      # SKY130 PDK Setup
 └── README.md
 ```
 
@@ -140,19 +140,7 @@ sudo dos2unix *.sh
 
 ---
 
-## 2. Install Skywater 130nm PDK
-
-```bash
-./pdk.sh
-```
-
-### This installs:
-
-* OpenPDKs (SKY130)
-
----
-
-## 3. Install Analog Design Tools Environment
+## 2. Install Analog Design Tools Environment
 
 ```bash
 ./analog.sh
@@ -165,6 +153,18 @@ sudo dos2unix *.sh
 * Magic VLSI
 * Netgen
 * OpenTimer
+
+---
+
+## 3. Install Skywater 130nm PDK
+
+```bash
+./pdk.sh
+```
+
+### This installs:
+
+* OpenPDKs (SKY130)
 
 ---
 
