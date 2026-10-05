@@ -195,7 +195,7 @@ echo "=========================================="
 echo "Creating Magic launcher wrapper..."
 echo "=========================================="
 
- Backup original magic binary if not already backed up
+# Backup original magic binary if not already backed up
 if [ -f /usr/local/bin/magic ] && [ ! -f /usr/local/bin/magic_bin ]; then
     sudo mv /usr/local/bin/magic /usr/local/bin/magic_bin
 fi
