@@ -46,7 +46,13 @@ bison \
 flex \
 libxrender-dev \
 libxpm-dev \
-libxext-dev					
+libxext-dev
+
+sudo apt-get install -y pipx
+pipx ensurepath
+export PATH=$HOME/.local/bin:$PATH
+
+pipx install cmake==3.26.4
 					
 sudo apt-get install -y netgen
 echo "=================================================="
