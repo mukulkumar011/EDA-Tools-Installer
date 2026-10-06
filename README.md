@@ -64,8 +64,7 @@ EDA-Tools-Installer/
 │
 ├── installfinalv2.sh & installfinalv21.sh      # RTL-to-GDSII Digital Flow Tools
 ├── openlaneinstall.sh                          # OpenLane + Docker Setup
-├── analog.sh                                   # Analog Design Tools Setup
-├── pdk.sh                                      # SKY130 PDK Setup
+├── pdk.sh                                      # Analog Design + SKY130 PDK Setup
 └── README.md
 ```
 
@@ -94,7 +93,7 @@ sudo apt-get install -y dos2unix git
 Clone the repository to your system:
 
 ```bash
-git clone https://github.com/mukulkumar011/EDA-Tools-Installer.git
+git clone https://github.com/NielitCoeNoida/EDA-Tools-Installer.git
 ```
 
 ---
@@ -140,10 +139,10 @@ sudo dos2unix *.sh
 
 ---
 
-## 2. Install Analog Design Tools Environment
+## 2. Install Analog Design Environment
 
 ```bash
-./analog.sh
+./pdk.sh
 ```
 
 ### This installs:
@@ -152,23 +151,12 @@ sudo dos2unix *.sh
 * Xschem
 * Magic VLSI
 * Netgen
+* OpenPDKs (SKY130)
 * OpenTimer
 
 ---
 
-## 3. Install Skywater 130nm PDK
-
-```bash
-./pdk.sh
-```
-
-### This installs:
-
-* OpenPDKs (SKY130)
-
----
-
-## 4. Install Digital RTL-to-GDSII Flow Tools
+## 3. Install Digital RTL-to-GDSII Flow Tools
 
 ```bash
 ./installfinalv2.sh
@@ -189,6 +177,8 @@ then
 * Icarus Verilog
 
 ---
+
+
 
 # Restart Terminal Session
 
@@ -304,10 +294,6 @@ docker run hello-world
 ---
 
 # Developed By
-
-Mukul Kumar
-
-Junior VLSI Engineer
 
 NIELIT CoE Noida
 
