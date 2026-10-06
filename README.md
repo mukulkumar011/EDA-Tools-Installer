@@ -111,13 +111,13 @@ cd EDA-Tools-Installer
 Give executable permissions to all shell scripts:
 
 ```bash
-sudo chmod +x *.sh
+chmod +x *.sh
 ```
 
 Convert Windows line endings if required:
 
 ```bash
-sudo dos2unix *.sh
+dos2unix *.sh
 ```
 
 ---
