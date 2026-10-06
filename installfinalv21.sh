@@ -1,5 +1,5 @@
 #!/bin/bash
-set -uo pipefail
+set -euo pipefail
 
 echo "#=============================================#"
 echo "# Author       : Mukul Kumar                  #"
@@ -33,7 +33,7 @@ echo "Detected $CORES cores, using $JOBS parallel jobs"
 # -------------------------------
 # STEP 1: System Dependencies
 # -------------------------------
-#sudo apt-get update
+sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get install -y \
 vim vim-gtk3 iverilog klayout
@@ -179,7 +179,7 @@ sudo apt-get install -y \
 # -------------------------------
 # STEP 7: RISC-V GCC
 # -------------------------------
-sudo apt-get install -y gcc-riscv64-unknown-elf
+#sudo apt-get install -y gcc-riscv64-unknown-elf
 
 # -------------------------------
 # STEP 2: Fix CMake
