@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "#============================================================#"
-echo "# Open PDK Installation Script                               #"
+echo "# Analog Complete with Open PDK Installation Script          #"
 echo "# Author         : Mukul Kumar                               #"
 echo "# Designation    : Junior VLSI Engineer                      #"
 echo "# Organization   : NIELIT CoE Noida                          #"                
@@ -71,53 +71,53 @@ fi
 # STEP 1: Ngspice
 # -------------------------------
 
-#cd /labroot/pdk
-#git clone https://git.code.sf.net/p/ngspice/ngspice ngspice_git
-#cd ngspice_git
-#mkdir release
-#./autogen.sh
-#cd release
-#../configure --with-x --enable-xspice --disable-debug --enable-cider --with-readline=yes --enable-openmp --enable-osdi
-#make
-#sudo make install
+cd /labroot/pdk
+git clone https://git.code.sf.net/p/ngspice/ngspice ngspice_git
+cd ngspice_git
+mkdir release
+./autogen.sh
+cd release
+../configure --with-x --enable-xspice --disable-debug --enable-cider --with-readline=yes --enable-openmp --enable-osdi
+make
+sudo make install
 
 # -------------------------------
 #  OpenTimer
 # -------------------------------
 
-#cd /labroot/pdk
-#git clone https://github.com/OpenTimer/OpenTimer.git
-#cd OpenTimer
-#mkdir build
-#cd build
-#cmake ..
-#make
-#sudo make install
+cd /labroot/pdk
+git clone https://github.com/OpenTimer/OpenTimer.git
+cd OpenTimer
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
 
 # -------------------------------
 # STEP 2: Xschem
 # -------------------------------
 
-#cd /labroot/pdk
-#git clone https://github.com/StefanSchippers/xschem.git xschem-src
-#cd xschem-src
-#./configure
-#make
-#sudo make install
-#cd /labroot/pdk/xschem-src/xschem_library
-#sudo git pull
+cd /labroot/pdk
+git clone https://github.com/StefanSchippers/xschem.git xschem-src
+cd xschem-src
+./configure
+make
+sudo make install
+cd /labroot/pdk/xschem-src/xschem_library
+sudo git pull
 
 # -------------------------------
 # STEP 3: Magic
 # -------------------------------
 
-#cd /labroot/pdk
-#git clone https://github.com/RTimothyEdwards/magic.git
-#cd magic
-#./configure
-#make
-#sudo make install
-#hash -r
+cd /labroot/pdk
+git clone https://github.com/RTimothyEdwards/magic.git
+cd magic
+./configure
+make
+sudo make install
+hash -r
 
 # -------------------------------
 # STEP 4: OpenPDKs
@@ -172,7 +172,7 @@ case $choice in
 
         mkdir -p "$PROJECT_DIR"
 
-        echo 'source /usr/local/share/analog/sky130B/libs.tech/xschem/xschemrc' > "$PROJECT_DIR/xschemrc"
+        echo 'source /usr/local/share/pdk/sky130B/libs.tech/xschem/xschemrc' > "$PROJECT_DIR/xschemrc"
 
         cd "$PROJECT_DIR"
 
@@ -230,7 +230,7 @@ case $choice in
 
         cd "$PROJECT_DIR"
 
-        magic_bin -rcfile /usr/local/share/analog/sky130B/libs.tech/magic/sky130B.magicrc
+        magic_bin -rcfile /usr/local/share/pdk/sky130B/libs.tech/magic/sky130B.magicrc
         ;;
 
     *)
@@ -242,6 +242,41 @@ EOF
 
 # Make wrapper executable
 sudo chmod +x /usr/local/bin/magic
+
+echo "Magic launcher wrapper installed successfully."
+echo "===== INSTALLATION COMPLETE ====="
+echo "===== FINAL TOOL STATUS ====="
+print_tool_info() {
+    local TOOL_NAME="$1"
+    local CMD="$2"
+
+    echo "$TOOL_NAME"
+
+    if command -v "$CMD" >/dev/null 2>&1; then
+        echo "Location: $(command -v "$CMD")"
+
+        VERSION=$(
+            "$CMD" --version 2>/dev/null | head -n 1 || \
+            "$CMD" -version 2>/dev/null | head -n 1 || \
+            "$CMD" -v 2>/dev/null | head -n 1 || true
+        )
+
+        if [ -n "$VERSION" ]; then
+            echo "   🔹 Version: $VERSION"
+        else
+            echo "   🔹 Version: Version info unavailable"
+        fi
+    else
+        echo "   ❌ Not Found"
+    fi
+
+    echo ""
+}
+print_tool_info "Magic" "magic"
+print_tool_info "Xschem" "xschem"
+print_tool_info "Netgen" "netgen"
+print_tool_info "Ngspice" "ngspice"
+echo "===== SETUP COMPLETE ====="
 
 echo "Magic launcher wrapper installed successfully."
 echo "===== INSTALLATION COMPLETE ====="
