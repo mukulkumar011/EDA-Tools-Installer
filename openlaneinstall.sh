@@ -13,13 +13,13 @@ echo "#   - WSL2                                                   #"
 echo "#   - Multi-user Linux Labs                                  #"
 echo "#============================================================#"
 
-set -uo pipefail
+set -euo pipefail
 
 echo "=================================================="
 echo " Updating System Packages"
 echo "=================================================="
 
-#sudo apt update -y
+sudo apt update -y
 sudo apt-get upgrade -y
 
 echo "=================================================="
@@ -40,7 +40,7 @@ sudo apt-get install -y \
     xauth
 
 	
-#sudo apt update
+sudo apt update
 sudo apt install -y \
 	mesa-utils \
 	libgl1 \
