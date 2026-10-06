@@ -1,5 +1,5 @@
 #!/bin/bash
-set -uo pipefail
+set -euo pipefail
 
 echo "#=============================================#"
 echo "# Author       : Mukul Kumar                  #"
