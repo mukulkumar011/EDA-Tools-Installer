@@ -178,7 +178,7 @@ sudo make install
 # -------------------------------
 # STEP 7: RISC-V GCC
 # -------------------------------
-#sudo apt-get install -y gcc-riscv64-unknown-elf
+sudo apt-get install -y gcc-riscv64-unknown-elf
 
 # -------------------------------
 # STEP 2: Fix CMake
@@ -416,6 +416,7 @@ print_tool_info "Verilator" "verilator"
 print_tool_info "GTKWave" "gtkwave"
 print_tool_info "Yosys" "yosys"
 print_tool_info "Klayout" "klayout"
+print_tool_info "RISC-V Tool Chain" "riscv64-unknown-elf-gcc"
 echo "===== SETUP COMPLETE ====="
 echo "#=============================================#"
 echo "# Author       : Mukul Kumar                  #"
