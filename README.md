@@ -295,8 +295,8 @@ docker run hello-world
 
 # Developed By
 
-Mukul Kumar
-VLSI Engineer
+Mukul Kumar<br>
+VLSI Engineer<br>
 NIELIT CoE Noida
 
 ---
