@@ -12,9 +12,9 @@ if [ ! -d "/labroot" ]; then
     sudo mkdir -p /labroot
 fi
 
-if [ ! -d "/labroot/openroad" ]; then
-    echo "Creating /labroot/openROAD directory..."
-    sudo mkdir -p /labroot/openROAD
+if [ ! -d "/labroot/OpenROAD" ]; then
+    echo "Creating /labroot/OpenROAD directory..."
+    sudo mkdir -p /labroot/OpenROAD
 fi
 
 sudo chown -R $USER:$USER /labroot
@@ -138,16 +138,16 @@ sudo apt-get install -y \
 # -------------------------------
 # STEP 17: OpenROAD
 # -------------------------------
-cd /labroot/openROAD
+cd /labroot/OpenROAD
 #git clone https://github.com/The-OpenROAD-Project/OpenROAD.git
 git clone --recurse-submodules https://github.com/The-OpenROAD-Project/OpenROAD.git /labroot/OpenROAD
-cd OpenROAD && cd etc
+cd /labroot/OpenROAD && cd etc
 sudo ./DependencyInstaller.sh -base
 sudo ./DependencyInstaller.sh -cmake -base
 sudo ./DependencyInstaller.sh -cmake -common -prefix=/labroot/openroad-deps -threads=2
 cd /labroot/OpenROAD/etc
 PATH=/labroot/openroad-deps/bin:$PATH ./Build.sh -cmake-build -cmake="-DCMAKE_PREFIX_PATH=/labroot/openroad-deps"
-sudo /labroot/openroad-deps/bin/cmake --install /labroot/openroad/build
+sudo /labroot/openroad-deps/bin/cmake --install /labroot/OpenROAD/build
 cd ~
 
 sudo apt-get install -y \
