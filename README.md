@@ -93,7 +93,7 @@ sudo apt-get install -y dos2unix git
 Clone the repository to your system:
 
 ```bash
-git clone https://github.com/NielitCoeNoida/EDA-Tools-Installer.git
+git clone https://github.com/mukulkumar011/EDA-Tools-Installer.git
 ```
 
 ---
