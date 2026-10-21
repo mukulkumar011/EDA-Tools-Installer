@@ -178,7 +178,7 @@ sudo make install
 # -------------------------------
 # STEP 7: RISC-V GCC
 # -------------------------------
-sudo apt-get install -y gcc-riscv64-unknown-elf
+#sudo apt-get install -y gcc-riscv64-unknown-elf
 
 # -------------------------------
 # STEP 2: Fix CMake
@@ -186,61 +186,61 @@ sudo apt-get install -y gcc-riscv64-unknown-elf
 #pip3 uninstall cmake -y || true
 #pip3 install cmake==3.26.4
 
-sudo apt-get install -y pipx
-pipx ensurepath
-export PATH=$HOME/.local/bin:$PATH
+#sudo apt-get install -y pipx
+#pipx ensurepath
+#export PATH=$HOME/.local/bin:$PATH
 
-pipx install cmake==3.26.4
+#pipx install cmake==3.26.4
 
 
 # -------------------------------
 # STEP 8: Abseil
 # -------------------------------
-cd /labroot/installfinal
-git clone https://github.com/abseil/abseil-cpp.git
-cd abseil-cpp
-git checkout 20240116.2
+#cd /labroot/installfinal
+#git clone https://github.com/abseil/abseil-cpp.git
+#cd abseil-cpp
+#git checkout 20240116.2
 
-mkdir build && cd build
-cmake .. -DCMAKE_CXX_STANDARD=17 || { echo "Configure failed"; exit 1; }
-make -j$JOBS
-sudo make install
+#mkdir build && cd build
+#cmake .. -DCMAKE_CXX_STANDARD=17 || { echo "Configure failed"; exit 1; }
+#make -j$JOBS
+#sudo make install
 
 # -------------------------------
 # STEP 9: YAML-CPP
 # -------------------------------
-cd /labroot/installfinal
-git clone https://github.com/jbeder/yaml-cpp.git
-cd yaml-cpp
+#cd /labroot/installfinal
+#git clone https://github.com/jbeder/yaml-cpp.git
+#cd yaml-cpp
 
-mkdir build && cd build
-cmake .. || { echo "Configure failed"; exit 1; }
-make -j$(nproc)
-sudo make install
+#mkdir build && cd build
+#cmake .. || { echo "Configure failed"; exit 1; }
+#make -j$(nproc)
+#sudo make install
 
 # -------------------------------
 # STEP 10: CUDD
 # -------------------------------
-cd /labroot/installfinal
-git clone https://github.com/ivmai/cudd.git
-cd cudd
+#cd /labroot/installfinal
+#git clone https://github.com/ivmai/cudd.git
+#cd cudd
 
-autoreconf -i
-./configure || { echo "Configure failed"; exit 1; }
-make -j$(nproc)
-sudo make install
+#autoreconf -i
+#./configure || { echo "Configure failed"; exit 1; }
+#make -j$(nproc)
+#sudo make install
 
 # -------------------------------
 # STEP 11: GTest
 # -------------------------------
-cd /labroot/installfinal
-git clone https://github.com/google/googletest.git
-cd googletest
+#cd /labroot/installfinal
+#git clone https://github.com/google/googletest.git
+#cd googletest
 
-mkdir build && cd build
-cmake .. || { echo "Configure failed"; exit 1; }
-make -j$(nproc)
-sudo make install
+#mkdir build && cd build
+#cmake .. || { echo "Configure failed"; exit 1; }
+#make -j$(nproc)
+#sudo make install
 
 # -------------------------------
 # STEP 12: SWIG (Python)
@@ -416,7 +416,6 @@ print_tool_info "Verilator" "verilator"
 print_tool_info "GTKWave" "gtkwave"
 print_tool_info "Yosys" "yosys"
 print_tool_info "Klayout" "klayout"
-print_tool_info "RISC-V Tool Chain" "riscv64-unknown-elf-gcc"
 echo "===== SETUP COMPLETE ====="
 echo "#=============================================#"
 echo "# Author       : Mukul Kumar                  #"
