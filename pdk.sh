@@ -46,6 +46,7 @@ bison \
 flex \
 libxrender-dev \
 libxpm-dev \
+cmake \
 libxext-dev					
 					
 sudo apt-get install -y netgen
