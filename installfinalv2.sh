@@ -402,7 +402,8 @@ print_tool_info() {
         VERSION=$(
             "$CMD" --version 2>/dev/null | head -n 1 || \
             "$CMD" -version 2>/dev/null | head -n 1 || \
-            "$CMD" -v 2>/dev/null | head -n 1 || true
+            "$CMD" -v 2>/dev/null | head -n 1 || \
+            "$CMD" -V 2>/dev/null | head -n 1 || true
         )
 
         if [ -n "$VERSION" ]; then
