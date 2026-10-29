@@ -35,7 +35,7 @@ echo "Detected $CORES cores, using $JOBS parallel jobs"
 #sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get install -y \
-vim vim-gtk3 iverilog klayout
+vim vim-gtk3 iverilog
 echo "===== Checking Required Tools ====="
 
 echo "===== Checking System Dependencies ====="
@@ -135,9 +135,9 @@ sudo apt-get install -y \
   gsl-bin libgsl-dev \
 
 # ---------------------------------------------
-# STEP 3: Install VIM , GVIM, YOSYS, GTKWAVE
+# STEP 3: Install VIM , GVIM, GTKWAVE
 # ---------------------------------------------
-sudo apt-get install -y vim vim-gtk3 yosys gtkwave irsim
+sudo apt-get install -y vim vim-gtk3 gtkwave irsim
 
 # -------------------------------
 # STEP 4: Verilator 5.038
@@ -167,13 +167,20 @@ sudo make install
 # -------------------------------
 # STEP 6: Yosys 0.9
 # -------------------------------
-#cd /labroot
-#git clone https://github.com/YosysHQ/yosys.git
-#cd yosys
-#git checkout yosys-0.9
-#make config-gcc || { echo "Configure failed"; exit 1; }
-#make -j$(nproc)
-#sudo make install
+cd /labroot
+git clone --branch yosys-0.9 --recurse-submodules --depth 1 https://github.com/YosysHQ/yosys.git
+cd yosys
+make config-gcc || { echo "Configure failed"; exit 1; }
+sed -i '1i#include <limits>' /labroot/yosys/passes/sat/freduce.cc
+make -j"$(nproc)"
+sudo make install
+
+# -------------------------------
+# STEP 6-a: Klayout 0.30.5
+# -------------------------------
+cd /labroot
+wget https://www.klayout.de/downloads/Ubuntu-24/klayout_0.30.5-1_amd64.deb
+sudo apt install ./klayout_0.30.5-1_amd64.deb || { echo "Installation failed"; exit 1; }
 
 # -------------------------------
 # STEP 7: RISC-V GCC
