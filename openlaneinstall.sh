@@ -69,7 +69,7 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 # Update package list
-#sudo apt-get update -y
+sudo apt update -y
 
 # Install Docker packages
 sudo apt-get install -y \
